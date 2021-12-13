@@ -15,3 +15,27 @@ func TestName(t *testing.T) {
 		t.Fatalf("expected names to be different")
 	}
 }
+
+func TestUseDictionary(t *testing.T) {
+	dictionary := []string{"frog", "horse", "buffalo"}
+
+	pn := new(
+		UseDictionary(dictionary),
+	)
+
+	name := pn.Name()
+
+	if ok := contains(dictionary, name); !ok {
+		t.Fatalf("expected name to be from provided dictionary")
+	}
+}
+
+func contains(s []string, str string) bool {
+	for _, v := range s {
+		if v == str {
+			return true
+		}
+	}
+
+	return false
+}
